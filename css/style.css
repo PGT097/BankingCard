@@ -67,7 +67,6 @@ body {
 .inputName {
     width: 422px;
     height: 25px;
-    text-transform: uppercase;
     border: 1px solid #c4c4c4;
     border-radius: 4px;
 }
