@@ -65,12 +65,15 @@ body {
   border-radius: 4px;
 }
 
-.inputName:focus {
-  width: 422px;
-  height: 25px;
-  text-transform: uppercase;
-  border: 1px solid #c4c4c4;
-  border-radius: 4px;
+
+
+
+.inputName {
+    width: 422px;
+    height: 25px;
+    border: 1px solid #c4c4c4;
+    border-radius: 4px;
+
 }
 
 .cardName {

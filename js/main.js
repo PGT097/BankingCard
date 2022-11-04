@@ -10,11 +10,31 @@ const cardCvv = document.querySelector(".cardCvv");
 const cardImgFront = document.querySelector(".card-front");
 const cardImgBack = document.querySelector(".card-back");
 
+
 inputNumber.addEventListener("input", () => {
   cardNumber.textContent = inputNumber.value.replace(/\d{4}(?=.)/g, "$& "); //regex de citit
+
+inputCvv.addEventListener("focus", () => {
+  cardImgFront.classList.toggle("card-front");
+  cardImgFront.classList.toggle("card-back");
 });
+inputCvv.addEventListener("focusout", () => {
+  cardImgFront.classList.toggle("card-front");
+  cardImgFront.classList.toggle("card-back");
+
+});
+
 inputName.addEventListener("input", () => {
+
   cardName.textContent = inputName.value;
+  cardName.style.border = "1px solid black";
+  cardName.textContent = inputName.value;
+});
+
+cardNumber.textContent = "#### #### #### ####";
+inputNumber.addEventListener("input", () => {
+  cardNumber.textContent = inputNumber.value.replace(/\d{4}(?=.)/g, "$& "); //regex de citit
+
 });
 
 let year = "0000";
@@ -25,9 +45,12 @@ inputMonth.addEventListener("input", () => {
 });
 inputYear.addEventListener("input", () => {
   year = inputYear.value;
+
   // `${month} / ${inputYear.value} `;
+
   cardDate.textContent = `${month}/${year}`;
 });
+
 inputCvv.addEventListener("input", () => {
   cardCvv.textContent = inputCvv.value;
 });
@@ -44,4 +67,42 @@ inputCvv.addEventListener("focus", () => {
 inputCvv.addEventListener("focusout", () => {
   cardImgFront.classList.toggle("card-front");
   cardImgFront.classList.toggle("card-back");
+
+inputName.addEventListener("focus", () => {
+  cardName.style.border = "1px solid red";
+  cardName.style.borderRadius = "5px";
+});
+inputName.addEventListener("focusout", () => {
+  cardName.style.border = "";
+});
+
+//Focusarea pe div Card din input
+inputNumber.addEventListener("focus", () => {
+  cardNumber.style.border = "1px solid red";
+  cardNumber.style.borderRadius = "5px";
+});
+inputNumber.addEventListener("focusout", () => {
+  cardNumber.style.border = "";
+});
+inputCvv.addEventListener("focus", () => {
+  cardCvv.style.border = "1px solid red";
+  cardCvv.style.borderRadius = "5px";
+});
+inputCvv.addEventListener("focusout", () => {
+  cardCvv.style.border = "";
+});
+inputMonth.addEventListener("focus", () => {
+  cardDate.style.border = "1px solid red";
+  cardDate.style.borderRadius = "5px";
+});
+inputMonth.addEventListener("focusout", () => {
+  cardDate.style.border = "";
+});
+inputYear.addEventListener("focus", () => {
+  cardDate.style.border = "1px solid red";
+  cardDate.style.borderRadius = "5px";
+});
+inputYear.addEventListener("focusout", () => {
+  cardDate.style.border = "";
+
 });
