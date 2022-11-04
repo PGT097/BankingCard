@@ -9,18 +9,10 @@ const inputCvv = document.querySelector(".inputCvv");
 const cardCvv = document.querySelector(".cardCvv");
 const cardImgFront = document.querySelector(".card-front");
 const cardImgBack = document.querySelector(".card-back");
-
-inputCvv.addEventListener("focus", () => {
-  cardImgFront.classList.toggle("card-front");
-  cardImgFront.classList.toggle("card-back");
-});
-inputCvv.addEventListener("focusout", () => {
-  cardImgFront.classList.toggle("card-front");
-  cardImgFront.classList.toggle("card-back");
-});
+let year = "0000"; // cardYear
+let month = "00"; // cardMonth
 
 inputName.addEventListener("input", () => {
-  cardName.style.border = "1px solid black";
   cardName.textContent = inputName.value;
 });
 
@@ -29,8 +21,6 @@ inputNumber.addEventListener("input", () => {
   cardNumber.textContent = inputNumber.value.replace(/\d{4}(?=.)/g, "$& "); //regex de citit
 });
 
-let year = "0000";
-let month = "00";
 inputMonth.addEventListener("input", () => {
   month = inputMonth.value;
   cardDate.textContent = `${month}/${year}`;
@@ -43,7 +33,7 @@ inputYear.addEventListener("input", () => {
 inputCvv.addEventListener("input", () => {
   cardCvv.textContent = inputCvv.value;
 });
-
+//Focusarea pe div Card din input
 inputName.addEventListener("focus", () => {
   cardName.style.border = "1px solid red";
   cardName.style.borderRadius = "5px";
@@ -51,8 +41,6 @@ inputName.addEventListener("focus", () => {
 inputName.addEventListener("focusout", () => {
   cardName.style.border = "";
 });
-
-//Focusarea pe div Card din input
 inputNumber.addEventListener("focus", () => {
   cardNumber.style.border = "1px solid red";
   cardNumber.style.borderRadius = "5px";
@@ -80,4 +68,12 @@ inputYear.addEventListener("focus", () => {
 });
 inputYear.addEventListener("focusout", () => {
   cardDate.style.border = "";
+});
+inputCvv.addEventListener("focus", () => {
+  cardImgFront.classList.toggle("card-front");
+  cardImgFront.classList.toggle("card-back");
+});
+inputCvv.addEventListener("focusout", () => {
+  cardImgFront.classList.toggle("card-front");
+  cardImgFront.classList.toggle("card-back");
 });
