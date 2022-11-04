@@ -10,6 +10,10 @@ const cardCvv = document.querySelector(".cardCvv");
 const cardImgFront = document.querySelector(".card-front");
 const cardImgBack = document.querySelector(".card-back");
 
+
+inputNumber.addEventListener("input", () => {
+  cardNumber.textContent = inputNumber.value.replace(/\d{4}(?=.)/g, "$& "); //regex de citit
+
 inputCvv.addEventListener("focus", () => {
   cardImgFront.classList.toggle("card-front");
   cardImgFront.classList.toggle("card-back");
@@ -17,9 +21,12 @@ inputCvv.addEventListener("focus", () => {
 inputCvv.addEventListener("focusout", () => {
   cardImgFront.classList.toggle("card-front");
   cardImgFront.classList.toggle("card-back");
+
 });
 
 inputName.addEventListener("input", () => {
+
+  cardName.textContent = inputName.value;
   cardName.style.border = "1px solid black";
   cardName.textContent = inputName.value;
 });
@@ -27,6 +34,7 @@ inputName.addEventListener("input", () => {
 cardNumber.textContent = "#### #### #### ####";
 inputNumber.addEventListener("input", () => {
   cardNumber.textContent = inputNumber.value.replace(/\d{4}(?=.)/g, "$& "); //regex de citit
+
 });
 
 let year = "0000";
@@ -37,12 +45,28 @@ inputMonth.addEventListener("input", () => {
 });
 inputYear.addEventListener("input", () => {
   year = inputYear.value;
+
+  // `${month} / ${inputYear.value} `;
+
   cardDate.textContent = `${month}/${year}`;
 });
 
 inputCvv.addEventListener("input", () => {
   cardCvv.textContent = inputCvv.value;
 });
+
+// inputCvv.addEventListener("focus"),
+//   () => {
+//     cardImgFront.classList.toggle("card-front");
+//     cardImgFront.classList.toggle("card-back");
+//   };
+inputCvv.addEventListener("focus", () => {
+  cardImgFront.classList.toggle("card-front");
+  cardImgFront.classList.toggle("card-back");
+});
+inputCvv.addEventListener("focusout", () => {
+  cardImgFront.classList.toggle("card-front");
+  cardImgFront.classList.toggle("card-back");
 
 inputName.addEventListener("focus", () => {
   cardName.style.border = "1px solid red";
@@ -80,4 +104,5 @@ inputYear.addEventListener("focus", () => {
 });
 inputYear.addEventListener("focusout", () => {
   cardDate.style.border = "";
+
 });
