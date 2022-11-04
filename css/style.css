@@ -1,19 +1,19 @@
 .cardName {
-    width: 150px;
+    width: 180px;
     height: 30px;
     position: absolute;
-    margin-top: -50px;
-    margin-left: 210px;
-    font-size: 24px;
+    margin-top: -47px;
+    margin-left: 190px;
+    font-size: 20px;
     color: white;
 }
 
 .cardNumber {
     width: 280px;
-    height: 30px;
+    height: 33px;
     position: absolute;
-    margin-top: -107px;
-    margin-left: 100px;
+    margin-top: -108px;
+    margin-left: 90px;
     font-size: 28px;
     color: white;
 }
@@ -29,12 +29,12 @@
 }
 
 .cardCvv {
-    width: 150px;
-    height: 30px;
+    width: 203px;
+    height: 26px;
     position: absolute;
     margin-top: -142px;
     font-size: 20px;
-    margin-left: 72px;
+    margin-left: 69px;
 }
 
 body {
@@ -145,8 +145,8 @@ body {
     justify-content: center;
 }
 .card-front {
-    z-index: 2;
+    z-index: 1;
 }
 .card-back {
-    z-index: 1;
+    z-index: 2;
 }

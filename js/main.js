@@ -20,7 +20,7 @@ inputCvv.addEventListener("focusout", () => {
 });
 
 inputName.addEventListener("input", () => {
-  cardName.style.border = "1px solid black";
+  // cardName.style.border = "1px solid black";
   cardName.textContent = inputName.value;
 });
 
