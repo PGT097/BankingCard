@@ -1,98 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <title>Title</title>
-  <link rel="stylesheet" href="style.css" class="stylesheet"/>
-</head>
-<body>
-<div class="container">
-  <div class="card-front">
-    <div class="card-img">
-      <img src="img/card1.png" alt="">
-    </div>
-    <div class="card-container">
-      <div class="cardName"></div>
-      <div class="cardNumber"></div>
-      <div class="cardDate">00/0000</div>
-    </div>
-  </div>
-  <div class="card-back">
-    <div class="card-img">
-      <img src="img/card2.png" alt="">
-    </div>
-    <div class="card-container">
-      <div class="cardCvv">cvv</div>
-    </div>
-  </div>
-  <form class="firstForum">
-    <div class="box">
-      Card Holder
-      <input class="inputName" type="text" placeholder="John Snow"/>
-    </div>
-    <div class="box">
-      Card Number
-      <input
-              class="inputNumber"
-              type="tel"
-              maxlength="16"
-              placeholder="1234 1234 1234 1234"
-      />
-    </div>
-
-    <div class="ccv-box">
-      <div class="box">
-        <div>
-          <span>Expiration Date</span>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link rel="stylesheet" href="./css/style.css" class="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card-front">
+        <div class="card-img">
+          <img src="img/card1.png" alt="" />
         </div>
-        <div>
-          <select class="month-input">
-            <option value="month" selected disabled>Month</option>
-            <option value="01">01</option>
-            <option value="02">02</option>
-            <option value="03">03</option>
-            <option value="04">04</option>
-            <option value="05">05</option>
-            <option value="06">06</option>
-            <option value="07">07</option>
-            <option value="08">08</option>
-            <option value="09">09</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-          </select>
-
-          <select class="year-input">
-            <option value="year" selected disabled>Year</option>
-            <option value="2022">2022</option>
-            <option value="2023">2023</option>
-            <option value="2024">2024</option>
-            <option value="2025">2025</option>
-            <option value="2026">2026</option>
-            <option value="2027">2027</option>
-            <option value="2028">2028</option>
-            <option value="2029">2029</option>
-            <option value="2030">2030</option>
-            <option value="2031">2032</option>
-          </select>
+        <div class="card-container">
+          <div class="cardName"></div>
+          <div class="cardNumber"></div>
+          <div class="cardDate">00/0000</div>
         </div>
       </div>
-
-      <div class="box">
-        <div>
-          <span>CCV</span>
+      <div class="card-back">
+        <div class="card-img">
+          <img src="img/card2.png" alt="" />
         </div>
-        <div>
-          <input class="inputCvv" type="text" placeholder="123" maxlength="3"/>
+        <div class="card-container">
+          <div class="cardCvv">cvv</div>
         </div>
       </div>
+      <form class="firstForum">
+        <div class="box">
+          Card Holder
+          <input class="inputName" type="text" placeholder="John Snow" />
+        </div>
+        <div class="box">
+          Card Number
+          <input
+            class="inputNumber"
+            type="tel"
+            maxlength="16"
+            placeholder="1234 1234 1234 1234"
+          />
+        </div>
 
+        <div class="ccv-box">
+          <div class="box">
+            <div>
+              <span>Expiration Date</span>
+            </div>
+            <div>
+              <select class="month-input">
+                <option value="month" selected disabled>Month</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+              </select>
+
+              <select class="year-input">
+                <option value="year" selected disabled>Year</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+                <option value="2027">2027</option>
+                <option value="2028">2028</option>
+                <option value="2029">2029</option>
+                <option value="2030">2030</option>
+                <option value="2031">2032</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="box">
+            <div>
+              <span>CCV</span>
+            </div>
+            <div>
+              <input
+                class="inputCvv"
+                type="text"
+                placeholder="123"
+                maxlength="3"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="button">
+          <input class="button1" type="submit" />
+        </div>
+      </form>
     </div>
-    <div class="button">
-      <input class="button1" type="submit"/>
-    </div>
-  </form>
-</div>
-<script src="script.js"></script>
-</body>
+    <script src="./js/main.js"></script>
+  </body>
 </html>
