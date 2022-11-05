@@ -7,7 +7,6 @@
     font-size: 24px;
     color: white;
 }
-
 .cardNumber {
     width: 280px;
     height: 30px;
@@ -17,7 +16,6 @@
     font-size: 28px;
     color: white;
 }
-
 .cardDate {
     width: 100px;
     height: 30px;
@@ -27,7 +25,6 @@
     font-size: 24px;
     color: white;
 }
-
 .cardCvv {
     width: 150px;
     height: 30px;
@@ -56,51 +53,42 @@ body {
     box-shadow: 0px 3px 10px #91abc9;
     margin-top: 200px;
 }
-
 .inputNumber {
     width: 422px;
     height: 25px;
     border: 1px solid #c4c4c4;
     border-radius: 4px;
 }
-
 .inputName {
     width: 422px;
     height: 25px;
     border: 1px solid #c4c4c4;
     border-radius: 4px;
 }
-
 .cardName {
     text-transform: uppercase
-
 }
-
 .month-input {
     width: 80px;
     height: 31px;
     border: 1px solid #c4c4c4;
     border-radius: 4px;
 }
-
 .year-input {
     width: 80px;
     height: 31px;
     border: 1px solid #c4c4c4;
     border-radius: 4px;
 }
-
 .inputCvv {
     height: 25px;
     border: 1px solid #c4c4c4;
     border-radius: 4px;
 }
-
 .box {
     padding: 10px;
     /*width: 100px;*/
 }
-
 .button1 {
     width: 400px;
     height: 40px;
@@ -109,13 +97,11 @@ body {
     border-color: #1765da;
     border-radius: 4px;
 }
-
 .button {
     display: flex;
     justify-content: center;
     padding-top: 20px;
 }
-
 .row {
     display: flex;
     flex-direction: row;
@@ -128,17 +114,14 @@ body {
     display: flex;
     justify-content: space-between;
 }
-
 .card-img img {
     width: 350px;
 }
-
 .card-front .card-img {
     margin-top: -150px;
     display: flex;
     justify-content: center;
 }
-
 .card-back .card-img {
     margin-top: -230px;
     display: flex;
