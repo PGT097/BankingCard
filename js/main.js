@@ -99,6 +99,8 @@ inputCvv.addEventListener("focus", () => {
   cardImgFront.classList.toggle("card-back");
   cardImgBack.classList.toggle("card-front");
   cardImgBack.classList.toggle("card-back");
+
+
 });
 inputCvv.addEventListener("focusout", () => {
   cardImgFront.classList.toggle("card-front");
