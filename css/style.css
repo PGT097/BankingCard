@@ -183,3 +183,7 @@ body {
 .visible {
     opacity: 1 !important;
 }
+.is-changing {
+    transform: translateY(-100px);
+    transition: transform 200ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }

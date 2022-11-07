@@ -54,6 +54,8 @@ arrInputNumber.push(
 );
 console.log(arrInputNumber);
 
+const reg = new RegExp("^[0-9]+$");
+
 inputNumber.addEventListener("input", (event) => {
   if (event.target.value.startsWith("4")) {
     logoImages.forEach((item) => {
@@ -71,58 +73,20 @@ inputNumber.addEventListener("input", (event) => {
     });
     discoverLogo.classList.add("visible");
   }
-  if (count === 0) {
-    arrInputNumber[0].textContent = inputNumber.value[0];
-    count++;
-  } else if (count === 1) {
-    arrInputNumber[1].textContent = inputNumber.value[1];
-    count++;
-  } else if (count === 2) {
-    arrInputNumber[2].textContent = inputNumber.value[2];
-    count++;
-  } else if (count === 3) {
-    arrInputNumber[3].textContent = inputNumber.value[3];
-    count++;
-  } else if (count === 4) {
-    arrInputNumber[4].textContent = inputNumber.value[4];
-    count++;
-  } else if (count === 5) {
-    arrInputNumber[5].textContent = inputNumber.value[5];
-    count++;
-  } else if (count === 6) {
-    arrInputNumber[6].textContent = inputNumber.value[6];
-    count++;
-  } else if (count === 7) {
-    arrInputNumber[7].textContent = inputNumber.value[7];
-    count++;
-  } else if (count === 8) {
-    arrInputNumber[8].textContent = inputNumber.value[8];
-    count++;
-  } else if (count === 9) {
-    arrInputNumber[9].textContent = inputNumber.value[9];
-    count++;
-  } else if (count === 10) {
-    arrInputNumber[10].textContent = inputNumber.value[10];
-    count++;
-  } else if (count === 11) {
-    arrInputNumber[11].textContent = inputNumber.value[11];
-    count++;
-  } else if (count === 12) {
-    arrInputNumber[12].textContent = inputNumber.value[12];
-    count++;
-  } else if (count === 13) {
-    arrInputNumber[13].textContent = inputNumber.value[13];
-    count++;
-  } else if (count === 14) {
-    arrInputNumber[14].textContent = inputNumber.value[14];
-    count++;
-  } else if (count === 15) {
-    arrInputNumber[15].textContent = inputNumber.value[15];
+  if (inputNumber.value[count].match(reg)) {
+    arrInputNumber[count].textContent = inputNumber.value[count];
     count++;
   }
   console.log(count);
 });
-console.log(arrInputNumber);
+
+inputNumber.addEventListener("keydown", (event) => {
+  if (event.keyCode == 8 && count > 0) {
+    count--;
+    arrInputNumber[count].textContent = "#";
+    console.log(count);
+  }
+});
 
 inputName.addEventListener("input", () => {
   cardName.textContent = inputName.value;
