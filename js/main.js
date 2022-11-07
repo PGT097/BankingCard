@@ -9,6 +9,10 @@ const inputCvv = document.querySelector(".inputCvv");
 const cardCvv = document.querySelector(".cardCvv");
 const cardImgFront = document.querySelector(".card-front");
 const cardImgBack = document.querySelector(".card-back");
+const visaLogo = document.querySelector(".visa");
+const mastercardLogo = document.querySelector(".mastercard");
+const discoverLogo = document.querySelector(".discover");
+const logoImages = document.querySelectorAll(".card-logo-img");
 const nr1 = document.querySelector("#nr1");
 const nr2 = document.querySelector("#nr2");
 const nr3 = document.querySelector("#nr3");
@@ -28,15 +32,6 @@ const nr16 = document.querySelector("#nr16");
 let year = "22"; // cardYear
 let month = "11"; // cardMonth
 let count = 0;
-
-// inputNumber.addEventListener("input", () => {
-//   if (count === 0) {
-//     nr1.textContent = inputNumber.value[0];
-//     count++;
-//   } else if (count === 1) {
-//     nr1[1].textContent = inputNumber.value[1];
-//   }
-// });
 
 let arrInputNumber = [];
 arrInputNumber.push(
@@ -59,24 +54,23 @@ arrInputNumber.push(
 );
 console.log(arrInputNumber);
 
-inputNumber.addEventListener("input", () => {
-  // arrInputNumber[0].textContent = inputNumber.value[0];
-  // arrInputNumber[1].textContent = inputNumber.value[1];
-  // arrInputNumber[2].textContent = inputNumber.value[2];
-  // arrInputNumber[3].textContent = inputNumber.value[3];
-  // arrInputNumber[4].textContent = inputNumber.value[4];
-  // arrInputNumber[5].textContent = inputNumber.value[5];
-  // arrInputNumber[6].textContent = inputNumber.value[6];
-  // arrInputNumber[7].textContent = inputNumber.value[7];
-  // arrInputNumber[8].textContent = inputNumber.value[8];
-  // arrInputNumber[9].textContent = inputNumber.value[9];
-  // arrInputNumber[10].textContent = inputNumber.value[10];
-  // arrInputNumber[11].textContent = inputNumber.value[11];
-  // arrInputNumber[12].textContent = inputNumber.value[12];
-  // arrInputNumber[13].textContent = inputNumber.value[13];
-  // arrInputNumber[14].textContent = inputNumber.value[14];
-  // arrInputNumber[15].textContent = inputNumber.value[15];
-
+inputNumber.addEventListener("input", (event) => {
+  if (event.target.value.startsWith("4")) {
+    logoImages.forEach((item) => {
+      item.classList.remove("visible");
+    });
+    visaLogo.classList.add("visible");
+  } else if (event.target.value.startsWith("5")) {
+    logoImages.forEach((item) => {
+      item.classList.remove("visible");
+    });
+    mastercardLogo.classList.add("visible");
+  } else if (event.target.value.startsWith("6")) {
+    logoImages.forEach((item) => {
+      item.classList.remove("visible");
+    });
+    discoverLogo.classList.add("visible");
+  }
   if (count === 0) {
     arrInputNumber[0].textContent = inputNumber.value[0];
     count++;
@@ -128,56 +122,7 @@ inputNumber.addEventListener("input", () => {
   }
   console.log(count);
 });
-
-//first code
-// inputNumber.addEventListener("input", () => {
-//   nr1.textContent = inputNumber.value[0];
-//   inputNumber.addEventListener("input", () => {
-//     nr2.textContent = inputNumber.value[1];
-//     inputNumber.addEventListener("input", () => {
-//       nr3.textContent = inputNumber.value[2];
-//       inputNumber.addEventListener("input", () => {
-//         nr4.textContent = inputNumber.value[3];
-//         inputNumber.addEventListener("input", () => {
-//           nr5.textContent = inputNumber.value[4];
-//           inputNumber.addEventListener("input", () => {
-//             nr6.textContent = inputNumber.value[5];
-//             inputNumber.addEventListener("input", () => {
-//               nr7.textContent = inputNumber.value[6];
-//               inputNumber.addEventListener("input", () => {
-//                 nr8.textContent = inputNumber.value[7];
-//                 inputNumber.addEventListener("input", () => {
-//                   nr9.textContent = inputNumber.value[8];
-//                   inputNumber.addEventListener("input", () => {
-//                     nr10.textContent = inputNumber.value[9];
-//                     inputNumber.addEventListener("input", () => {
-//                       nr11.textContent = inputNumber.value[10];
-//                       inputNumber.addEventListener("input", () => {
-//                         nr12.textContent = inputNumber.value[11];
-//                         inputNumber.addEventListener("input", () => {
-//                           nr13.textContent = inputNumber.value[12];
-//                           inputNumber.addEventListener("input", () => {
-//                             nr14.textContent = inputNumber.value[13];
-//                             inputNumber.addEventListener("input", () => {
-//                               nr15.textContent = inputNumber.value[14];
-//                               inputNumber.addEventListener("input", () => {
-//                                 nr16.textContent = inputNumber.value[15];
-//                               });
-//                             });
-//                           });
-//                         });
-//                       });
-//                     });
-//                   });
-//                 });
-//               });
-//             });
-//           });
-//         });
-//       });
-//     });
-//   });
-// });
+console.log(arrInputNumber);
 
 inputName.addEventListener("input", () => {
   cardName.textContent = inputName.value;
@@ -197,35 +142,35 @@ inputCvv.addEventListener("input", () => {
 });
 //Focusarea pe div Card din input
 inputName.addEventListener("focus", () => {
-  cardName.style.border = "1px solid red";
+  cardName.style.border = "1px solid white";
   cardName.style.borderRadius = "5px";
 });
 inputName.addEventListener("focusout", () => {
   cardName.style.border = "";
 });
 inputNumber.addEventListener("focus", () => {
-  cardNumber.style.border = "1px solid red";
+  cardNumber.style.border = "1px solid white";
   cardNumber.style.borderRadius = "5px";
 });
 inputNumber.addEventListener("focusout", () => {
   cardNumber.style.border = "";
 });
 inputCvv.addEventListener("focus", () => {
-  cardCvv.style.border = "1px solid red";
+  cardCvv.style.border = "1px solid white";
   cardCvv.style.borderRadius = "5px";
 });
 inputCvv.addEventListener("focusout", () => {
   cardCvv.style.border = "";
 });
 inputMonth.addEventListener("focus", () => {
-  cardDate.style.border = "1px solid red";
+  cardDate.style.border = "1px solid white";
   cardDate.style.borderRadius = "5px";
 });
 inputMonth.addEventListener("focusout", () => {
   cardDate.style.border = "";
 });
 inputYear.addEventListener("focus", () => {
-  cardDate.style.border = "1px solid red";
+  cardDate.style.border = "1px solid white";
   cardDate.style.borderRadius = "5px";
 });
 inputYear.addEventListener("focusout", () => {
@@ -234,9 +179,12 @@ inputYear.addEventListener("focusout", () => {
 inputCvv.addEventListener("focus", () => {
   cardImgFront.classList.toggle("card-front");
   cardImgFront.classList.toggle("card-back");
+  cardImgBack.classList.toggle("card-front");
+  cardImgBack.classList.toggle("card-back");
 });
 inputCvv.addEventListener("focusout", () => {
   cardImgFront.classList.toggle("card-front");
   cardImgFront.classList.toggle("card-back");
-  // cardImgFront.style.transform = "rotateY(90deg)";
+  cardImgBack.classList.toggle("card-front");
+  cardImgBack.classList.toggle("card-back");
 });
