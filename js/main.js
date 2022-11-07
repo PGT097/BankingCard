@@ -33,8 +33,8 @@ let month = "11"; // cardMonth
 // };
 // console.log(numbersInput("#nr2"));
 
-const a = [];
-a.push(
+let arrInputNumber = [];
+arrInputNumber.push(
   nr1,
   nr2,
   nr3,
@@ -52,26 +52,25 @@ a.push(
   nr15,
   nr16
 );
-console.log(a);
+console.log(arrInputNumber);
 
 inputNumber.addEventListener("input", () => {
-  a[0].textContent = inputNumber.value[0];
-  a[1].textContent = inputNumber.value[1];
-  a[2].textContent = inputNumber.value[2];
-  a[3].textContent = inputNumber.value[3];
-  a[4].textContent = inputNumber.value[4];
-  a[5].textContent = inputNumber.value[5];
-  a[6].textContent = inputNumber.value[6];
-  a[7].textContent = inputNumber.value[7];
-  a[8].textContent = inputNumber.value[8];
-  a[9].textContent = inputNumber.value[9];
-  a[10].textContent = inputNumber.value[10];
-  a[11].textContent = inputNumber.value[11];
-  a[12].textContent = inputNumber.value[12];
-  a[13].textContent = inputNumber.value[13];
-  a[14].textContent = inputNumber.value[14];
-  a[15].textContent = inputNumber.value[15];
-  a[16].textContent = inputNumber.value[16];
+  arrInputNumber[0].textContent = inputNumber.value[0];
+  arrInputNumber[1].textContent = inputNumber.value[1];
+  arrInputNumber[2].textContent = inputNumber.value[2];
+  arrInputNumber[3].textContent = inputNumber.value[3];
+  arrInputNumber[4].textContent = inputNumber.value[4];
+  arrInputNumber[5].textContent = inputNumber.value[5];
+  arrInputNumber[6].textContent = inputNumber.value[6];
+  arrInputNumber[7].textContent = inputNumber.value[7];
+  arrInputNumber[8].textContent = inputNumber.value[8];
+  arrInputNumber[9].textContent = inputNumber.value[9];
+  arrInputNumber[10].textContent = inputNumber.value[10];
+  arrInputNumber[11].textContent = inputNumber.value[11];
+  arrInputNumber[12].textContent = inputNumber.value[12];
+  arrInputNumber[13].textContent = inputNumber.value[13];
+  arrInputNumber[14].textContent = inputNumber.value[14];
+  arrInputNumber[15].textContent = inputNumber.value[15];
 });
 
 //first code
