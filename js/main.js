@@ -25,21 +25,22 @@ inputName.addEventListener("input", () => {
 cardNumber.textContent = "#### #### #### ####";
 inputNumber.addEventListener("input", (event) => {
   cardNumber.textContent = inputNumber.value.replace(/\d{4}(?=.)/g, "$& "); //regex de citit
+
   if (event.target.value.startsWith("4")) {
     logoImages.forEach((item) => {
-      item.classList.remove("visible")
+      item.classList.remove("visible");
     })
-    visaLogo.classList.add("visible")
+    visaLogo.classList.add("visible");
   } else if (event.target.value.startsWith("5")) {
     logoImages.forEach((item) => {
-      item.classList.remove("visible")
+      item.classList.remove("visible");
     })
-    mastercardLogo.classList.add('visible')
+    mastercardLogo.classList.add("visible");
   } else if (event.target.value.startsWith("6")) {
     logoImages.forEach((item) => {
-      item.classList.remove("visible")
+      item.classList.remove("visible");
     })
-    discoverLogo.classList.add("visible")
+    discoverLogo.classList.add("visible");
   }
 
 });

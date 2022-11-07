@@ -179,6 +179,7 @@ body {
     margin-left: 285px;
     opacity: 0;
 }
+
 .visible {
     opacity: 1 !important;
 }
