@@ -3,18 +3,18 @@
     height: 30px;
     position: absolute;
     margin-top: -47px;
-    margin-left: 190px;
+    margin-left: 200px;
     font-size: 20px;
     color: white;
 }
 
 .cardNumber {
-    width: 280px;
-    height: 33px;
+    width: 275px;
+    height: 30px;
     position: absolute;
-    margin-top: -108px;
+    margin-top: -110px;
     margin-left: 90px;
-    font-size: 28px;
+    font-size: 25px;
     color: white;
 }
 
@@ -29,8 +29,8 @@
 }
 
 .cardCvv {
-    width: 203px;
-    height: 26px;
+    width: 200px;
+    height: 27px;
     position: absolute;
     margin-top: -142px;
     font-size: 20px;
@@ -149,4 +149,36 @@ body {
 }
 .card-back {
     z-index: 1;
+    transform: rotateY(-180deg);
+}
+
+.card-side {
+    backface-visibility: hidden;
+    transition: all 0.8s ease;
+    transform-style: preserve-3d;
+}
+
+.visa {
+    height: 20px;
+    position: absolute;
+    margin-top: -200px;
+    margin-left: 300px;
+    opacity: 0;
+}
+.mastercard {
+    height: 45px;
+    position: absolute;
+    margin-top: -200px;
+    margin-left: 310px;
+    opacity: 0;
+}
+.discover {
+    height: 50px;
+    position: absolute;
+    margin-top: -215px;
+    margin-left: 285px;
+    opacity: 0;
+}
+.visible {
+    opacity: 1 !important;
 }
