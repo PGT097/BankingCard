@@ -9,16 +9,123 @@ const inputCvv = document.querySelector(".inputCvv");
 const cardCvv = document.querySelector(".cardCvv");
 const cardImgFront = document.querySelector(".card-front");
 const cardImgBack = document.querySelector(".card-back");
-let year = "0000"; // cardYear
-let month = "00"; // cardMonth
+const nr1 = document.querySelector("#nr1");
+const nr2 = document.querySelector("#nr2");
+const nr3 = document.querySelector("#nr3");
+const nr4 = document.querySelector("#nr4");
+const nr5 = document.querySelector("#nr5");
+const nr6 = document.querySelector("#nr6");
+const nr7 = document.querySelector("#nr7");
+const nr8 = document.querySelector("#nr8");
+const nr9 = document.querySelector("#nr9");
+const nr10 = document.querySelector("#nr10");
+const nr11 = document.querySelector("#nr11");
+const nr12 = document.querySelector("#nr12");
+const nr13 = document.querySelector("#nr13");
+const nr14 = document.querySelector("#nr14");
+const nr15 = document.querySelector("#nr15");
+const nr16 = document.querySelector("#nr16");
+let year = "22"; // cardYear
+let month = "11"; // cardMonth
+
+// const numbersInput = (idname) => {
+//   nr = document.querySelector(idname).textContent;
+// };
+// console.log(numbersInput("#nr2"));
+
+const a = [];
+a.push(
+  nr1,
+  nr2,
+  nr3,
+  nr4,
+  nr5,
+  nr6,
+  nr7,
+  nr8,
+  nr9,
+  nr10,
+  nr11,
+  nr12,
+  nr13,
+  nr14,
+  nr15,
+  nr16
+);
+console.log(a);
+
+inputNumber.addEventListener("input", () => {
+  a[0].textContent = inputNumber.value[0];
+  a[1].textContent = inputNumber.value[1];
+  a[2].textContent = inputNumber.value[2];
+  a[3].textContent = inputNumber.value[3];
+  a[4].textContent = inputNumber.value[4];
+  a[5].textContent = inputNumber.value[5];
+  a[6].textContent = inputNumber.value[6];
+  a[7].textContent = inputNumber.value[7];
+  a[8].textContent = inputNumber.value[8];
+  a[9].textContent = inputNumber.value[9];
+  a[10].textContent = inputNumber.value[10];
+  a[11].textContent = inputNumber.value[11];
+  a[12].textContent = inputNumber.value[12];
+  a[13].textContent = inputNumber.value[13];
+  a[14].textContent = inputNumber.value[14];
+  a[15].textContent = inputNumber.value[15];
+  a[16].textContent = inputNumber.value[16];
+});
+
+//first code
+// inputNumber.addEventListener("input", () => {
+//   nr1.textContent = inputNumber.value[0];
+//   inputNumber.addEventListener("input", () => {
+//     nr2.textContent = inputNumber.value[1];
+//     inputNumber.addEventListener("input", () => {
+//       nr3.textContent = inputNumber.value[2];
+//       inputNumber.addEventListener("input", () => {
+//         nr4.textContent = inputNumber.value[3];
+//         inputNumber.addEventListener("input", () => {
+//           nr5.textContent = inputNumber.value[4];
+//           inputNumber.addEventListener("input", () => {
+//             nr6.textContent = inputNumber.value[5];
+//             inputNumber.addEventListener("input", () => {
+//               nr7.textContent = inputNumber.value[6];
+//               inputNumber.addEventListener("input", () => {
+//                 nr8.textContent = inputNumber.value[7];
+//                 inputNumber.addEventListener("input", () => {
+//                   nr9.textContent = inputNumber.value[8];
+//                   inputNumber.addEventListener("input", () => {
+//                     nr10.textContent = inputNumber.value[9];
+//                     inputNumber.addEventListener("input", () => {
+//                       nr11.textContent = inputNumber.value[10];
+//                       inputNumber.addEventListener("input", () => {
+//                         nr12.textContent = inputNumber.value[11];
+//                         inputNumber.addEventListener("input", () => {
+//                           nr13.textContent = inputNumber.value[12];
+//                           inputNumber.addEventListener("input", () => {
+//                             nr14.textContent = inputNumber.value[13];
+//                             inputNumber.addEventListener("input", () => {
+//                               nr15.textContent = inputNumber.value[14];
+//                               inputNumber.addEventListener("input", () => {
+//                                 nr16.textContent = inputNumber.value[15];
+//                               });
+//                             });
+//                           });
+//                         });
+//                       });
+//                     });
+//                   });
+//                 });
+//               });
+//             });
+//           });
+//         });
+//       });
+//     });
+//   });
+// });
 
 inputName.addEventListener("input", () => {
   cardName.textContent = inputName.value;
-});
-
-cardNumber.textContent = "#### #### #### ####";
-inputNumber.addEventListener("input", () => {
-  cardNumber.textContent = inputNumber.value.replace(/\d{4}(?=.)/g, "$& "); //regex de citit
 });
 
 inputMonth.addEventListener("input", () => {
@@ -76,4 +183,5 @@ inputCvv.addEventListener("focus", () => {
 inputCvv.addEventListener("focusout", () => {
   cardImgFront.classList.toggle("card-front");
   cardImgFront.classList.toggle("card-back");
+  // cardImgFront.style.transform = "rotateY(90deg)";
 });
