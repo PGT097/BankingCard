@@ -9,19 +9,19 @@
 }
 
 .cardNumber {
-    width: 275px;
-    height: 30px;
-    position: absolute;
-    margin-top: -100px;
-    margin-left: 90px;
+    width: 100deg;
+    height: 100deg;
+    position: fixed;
+    margin-top: -105px;
+    margin-left: 110px;
     font-size: 25px;
     color: white;
     /* display: flex; */
 }
 
 .cardDate {
-    width: 56px;
-    height: 30px;
+    width: 100deg;
+    height: 100deg;
     position: absolute;
     margin-top: -50px;
     margin-left: 72px;
@@ -92,6 +92,7 @@ body {
 }
 
 .inputCvv {
+    width: 50px;
     height: 25px;
     border: 1px solid #c4c4c4;
     border-radius: 4px;

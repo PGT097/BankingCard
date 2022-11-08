@@ -30,6 +30,10 @@ const nr13 = document.querySelector("#nr13");
 const nr14 = document.querySelector("#nr14");
 const nr15 = document.querySelector("#nr15");
 const nr16 = document.querySelector("#nr16");
+const ccv1 = document.querySelector("#ccv1");
+const ccv2 = document.querySelector("#ccv2");
+const ccv3 = document.querySelector("#ccv3");
+
 let year = "YY"; // cardYear
 let month = "MM"; // cardMonth
 let count = 0;
@@ -58,7 +62,7 @@ console.log(arrInputNumber);
 const optionYear = ["YY", "22", "23", "24", "25", "26", "27", "28", "29", "30"];
 for (let i = 0; i < optionYear.length; i++) {
   const option = document.createElement("option");
-  option.value = optionYear[i];
+  // option.value = optionYear[i];
   option.text = optionYear[i];
   inputYear.appendChild(option);
 }
@@ -96,23 +100,24 @@ inputNumber.addEventListener("input", () => {
   if (inputNumber.value[count].match(reg)) {
     arrInputNumber[count].textContent = inputNumber.value[count];
     count++;
-    if (inputNumber.value[0] == 4) {
+    if (inputNumber.value[0] === "4") {
       newImg.src = "img/cardLogo/visa.png";
       newImg.style.height = "40px";
       newImg.style.width = "80px";
       logoImages.append(newImg);
-    } else if (inputNumber.value[0] == 5) {
+    } else if (inputNumber.value[0] === "5") {
       newImg.src = "img/cardLogo/mastercard.png";
       newImg.style.height = "50px";
       newImg.style.width = "80px";
       logoImages.append(newImg);
-    } else if (inputNumber.value[0] == 6) {
+    } else if (inputNumber.value[0] === "6") {
       newImg.src = "img/cardLogo/discover.png";
       newImg.style.height = "60px";
       newImg.style.width = "90px";
       logoImages.append(newImg);
-    } else {
     }
+  } else {
+    inputNumber.value = inputNumber.value.slice(0, -1);
   }
   console.log(count);
 });
@@ -141,10 +146,25 @@ inputYear.addEventListener("input", () => {
   year = inputYear.value;
   cardDate.textContent = `${month}/${year}`;
 });
-
+const arrCvv = [ccv1, ccv2, ccv3];
+let countCCV = 0;
 inputCvv.addEventListener("input", () => {
-  cardCvv.textContent = inputCvv.value;
+  if (inputCvv.value[countCCV].match(reg)) {
+    arrCvv[countCCV].textContent = inputCvv.value[countCCV];
+    countCCV++;
+  } else {
+    console.log("eroare brat", inputCvv);
+    inputCvv.value = inputCvv.value.slice(0, -1);
+  }
 });
+inputCvv.addEventListener("keydown", (event) => {
+  if (event.keyCode === 8 && countCCV > 0) {
+    countCCV--;
+    arrCvv[countCCV].textContent = "";
+    console.log(countCCV);
+  }
+});
+
 //Focusarea pe div Card din input
 inputName.addEventListener("focus", () => {
   cardName.style.border = "1px solid white";
