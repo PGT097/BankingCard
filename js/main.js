@@ -12,7 +12,8 @@ const cardImgBack = document.querySelector(".card-back");
 const visaLogo = document.querySelector(".visa");
 const mastercardLogo = document.querySelector(".mastercard");
 const discoverLogo = document.querySelector(".discover");
-const logoImages = document.querySelectorAll(".card-logo-img");
+const logoImages = document.querySelector(".card-logo");
+const newImg = document.createElement("img");
 const nr1 = document.querySelector("#nr1");
 const nr2 = document.querySelector("#nr2");
 const nr3 = document.querySelector("#nr3");
@@ -29,12 +30,11 @@ const nr13 = document.querySelector("#nr13");
 const nr14 = document.querySelector("#nr14");
 const nr15 = document.querySelector("#nr15");
 const nr16 = document.querySelector("#nr16");
-let year = "22"; // cardYear
-let month = "11"; // cardMonth
+let year = "YY"; // cardYear
+let month = "MM"; // cardMonth
 let count = 0;
 
-let arrInputNumber = [];
-arrInputNumber.push(
+const arrInputNumber = [
   nr1,
   nr2,
   nr3,
@@ -50,41 +50,82 @@ arrInputNumber.push(
   nr13,
   nr14,
   nr15,
-  nr16
-);
+  nr16,
+];
 console.log(arrInputNumber);
-
+//------------------------------------------------------------------------
+//select year
+const optionYear = ["YY", "22", "23", "24", "25", "26", "27", "28", "29", "30"];
+for (let i = 0; i < optionYear.length; i++) {
+  const option = document.createElement("option");
+  option.value = optionYear[i];
+  option.text = optionYear[i];
+  inputYear.appendChild(option);
+}
+//------------------------------------------------------------------------
+//select month
+const optionMonth = [
+  "MM",
+  "01",
+  "02",
+  "03",
+  "04",
+  "05",
+  "06",
+  "07",
+  "08",
+  "09",
+  "10",
+  "11",
+  "12",
+];
+for (let i = 0; i < optionMonth.length; i++) {
+  const option = document.createElement("option");
+  option.value = optionMonth[i];
+  option.text = optionMonth[i];
+  inputMonth.appendChild(option);
+}
+//------------------------------------------------------------------------
 const reg = new RegExp("^[0-9]+$");
 
-inputNumber.addEventListener("input", (event) => {
-  if (event.target.value.startsWith("4")) {
-    logoImages.forEach((item) => {
-      item.classList.remove("visible");
-    });
-    visaLogo.classList.add("visible");
-  } else if (event.target.value.startsWith("5")) {
-    logoImages.forEach((item) => {
-      item.classList.remove("visible");
-    });
-    mastercardLogo.classList.add("visible");
-  } else if (event.target.value.startsWith("6")) {
-    logoImages.forEach((item) => {
-      item.classList.remove("visible");
-    });
-    discoverLogo.classList.add("visible");
-  }
+// const regex = new RegExp("^[0-9]{3, 4}$");
+
+// inputNumber.match(reg);
+
+inputNumber.addEventListener("input", () => {
   if (inputNumber.value[count].match(reg)) {
     arrInputNumber[count].textContent = inputNumber.value[count];
     count++;
+    if (inputNumber.value[0] == 4) {
+      newImg.src = "img/cardLogo/visa.png";
+      newImg.style.height = "40px";
+      newImg.style.width = "80px";
+      logoImages.append(newImg);
+    } else if (inputNumber.value[0] == 5) {
+      newImg.src = "img/cardLogo/mastercard.png";
+      newImg.style.height = "50px";
+      newImg.style.width = "80px";
+      logoImages.append(newImg);
+    } else if (inputNumber.value[0] == 6) {
+      newImg.src = "img/cardLogo/discover.png";
+      newImg.style.height = "60px";
+      newImg.style.width = "90px";
+      logoImages.append(newImg);
+    } else {
+    }
   }
   console.log(count);
 });
-
+//delete charter num card
 inputNumber.addEventListener("keydown", (event) => {
-  if (event.keyCode == 8 && count > 0) {
+  if (event.keyCode === 8 && count > 0) {
     count--;
     arrInputNumber[count].textContent = "#";
     console.log(count);
+  }
+  //delet imgLogo
+  if (event.keyCode === 8 && count === 0) {
+    newImg.remove();
   }
 });
 
@@ -119,13 +160,13 @@ inputNumber.addEventListener("focus", () => {
 inputNumber.addEventListener("focusout", () => {
   cardNumber.style.border = "";
 });
-inputCvv.addEventListener("focus", () => {
-  cardCvv.style.border = "1px solid white";
-  cardCvv.style.borderRadius = "5px";
-});
-inputCvv.addEventListener("focusout", () => {
-  cardCvv.style.border = "";
-});
+// inputCvv.addEventListener("focus", () => {
+//   cardCvv.style.border = "1px solid white";
+//   cardCvv.style.borderRadius = "5px";
+// });
+// inputCvv.addEventListener("focusout", () => {
+//   cardCvv.style.border = "";
+// });
 inputMonth.addEventListener("focus", () => {
   cardDate.style.border = "1px solid white";
   cardDate.style.borderRadius = "5px";
