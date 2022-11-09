@@ -9,8 +9,6 @@
 }
 
 .cardNumber {
-    width: 100deg;
-    height: 100deg;
     position: fixed;
     margin-top: -105px;
     margin-left: 110px;
@@ -20,8 +18,6 @@
 }
 
 .cardDate {
-    width: 100deg;
-    height: 100deg;
     position: absolute;
     margin-top: -50px;
     margin-left: 72px;
@@ -36,6 +32,7 @@
     margin-top: -138px;
     font-size: 20px;
     margin-left: 230px;
+    direction: rtl;
 }
 
 body {
@@ -194,9 +191,16 @@ body {
     opacity: 1 !important;
 }
 .is-changing {
-    transform: translateY(-10px);
-    transition: transform 300ms;
-;
-
+    /* transform: translate(-2.1rem, -2ex); */
+    animation-name: rotate;
+    animation-duration: 0.7s;
   }
- 
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }

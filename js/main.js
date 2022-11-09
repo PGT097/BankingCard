@@ -6,13 +6,10 @@ const inputMonth = document.querySelector(".month-input");
 const inputYear = document.querySelector(".year-input");
 const cardDate = document.querySelector(".cardDate");
 const inputCvv = document.querySelector(".inputCvv");
-const cardCvv = document.querySelector(".cardCvv");
 const cardImgFront = document.querySelector(".card-front");
 const cardImgBack = document.querySelector(".card-back");
-const visaLogo = document.querySelector(".visa");
-const mastercardLogo = document.querySelector(".mastercard");
-const discoverLogo = document.querySelector(".discover");
 const logoImages = document.querySelector(".card-logo");
+const change = document.querySelector(".is-changing");
 const newImg = document.createElement("img");
 const nr1 = document.querySelector("#nr1");
 const nr2 = document.querySelector("#nr2");
@@ -33,6 +30,9 @@ const nr16 = document.querySelector("#nr16");
 const ccv1 = document.querySelector("#ccv1");
 const ccv2 = document.querySelector("#ccv2");
 const ccv3 = document.querySelector("#ccv3");
+const space1 = document.querySelector("#space1");
+const space2 = document.querySelector("#space2");
+const space3 = document.querySelector("#space3");
 
 let year = "YY"; // cardYear
 let month = "MM"; // cardMonth
@@ -43,14 +43,17 @@ const arrInputNumber = [
   nr2,
   nr3,
   nr4,
+  space1,
   nr5,
   nr6,
   nr7,
   nr8,
+  space2,
   nr9,
   nr10,
   nr11,
   nr12,
+  space3,
   nr13,
   nr14,
   nr15,
@@ -92,13 +95,32 @@ for (let i = 0; i < optionMonth.length; i++) {
 //------------------------------------------------------------------------
 const reg = new RegExp("^[0-9]+$");
 
-// const regex = new RegExp("^[0-9]{3, 4}$");
+// let dummyTxt = "1234567890123456";
+// let joy = dummyTxt.match(/.{1,4}/g);
+// console.log(joy);
+// console.log(joy.join(" "));
 
-// inputNumber.match(reg);
+inputNumber.addEventListener("input", function (e) {
+  e.target.value = e.target.value
+    .replace(/[^\dA-Z]/g, "")
+    .replace(/(.{4})/g, "$1 ")
+    .trim();
+});
 
 inputNumber.addEventListener("input", () => {
-  if (inputNumber.value[count].match(reg)) {
+  if (inputNumber.value[count]) {
+    console.log(123, inputNumber.value.match(reg));
     arrInputNumber[count].textContent = inputNumber.value[count];
+    console.log(count);
+
+    if (count === 4) {
+      inputNumber.value = inputNumber.value.slice(0, -1);
+    } else if (count === 9) {
+      inputNumber.value = inputNumber.value.slice(0, -1);
+    } else if (count === 14) {
+      inputNumber.value = inputNumber.value.slice(0, -1);
+    }
+    // arrInputNumber[count].classList.toggle("is-changing");
     count++;
     if (inputNumber.value[0] === "4") {
       newImg.src = "img/cardLogo/visa.png";
@@ -115,20 +137,83 @@ inputNumber.addEventListener("input", () => {
       newImg.style.height = "60px";
       newImg.style.width = "90px";
       logoImages.append(newImg);
+      // } else if (inputNumber.value.length === 4) {
+      //   console.log("intra");
+      //   inputNumber.value[count] = "0";
     }
   } else {
     inputNumber.value = inputNumber.value.slice(0, -1);
   }
-  console.log(count);
 });
-//delete charter num card
 inputNumber.addEventListener("keydown", (event) => {
   if (event.keyCode === 8 && count > 0) {
     count--;
+    arrInputNumber[count].classList.toggle("is-changing");
     arrInputNumber[count].textContent = "#";
+    if (count === 14) {
+      arrInputNumber[count].textContent = " ";
+    } else if (count === 9) {
+      arrInputNumber[count].textContent = " ";
+    } else if (count === 4) {
+      arrInputNumber[count].textContent = " ";
+    }
     console.log(count);
   }
-  //delet imgLogo
+  // else if (event.keyCode === 224 && count > 0) {
+  //   arrInputNumber.forEach((item) => {
+  //     item.textContent = "#";
+  //     item.classList.toggle("is-changing");
+
+  //     console.log("delete all");
+  //   });
+  //   count = 0;
+  // }
+
+  // inputNumber.addEventListener("input", () => {
+  //   if (inputNumber.value[count].match(reg)) {
+  //     arrInputNumber[count].textContent = inputNumber.value[count];
+  //     arrInputNumber[count].classList.toggle("is-changing");
+  //     count++;
+  //     if (inputNumber.value[0] === "4") {
+  //       newImg.src = "img/cardLogo/visa.png";
+  //       newImg.style.height = "40px";
+  //       newImg.style.width = "80px";
+  //       logoImages.append(newImg);
+  //     } else if (inputNumber.value[0] === "5") {
+  //       newImg.src = "img/cardLogo/mastercard.png";
+  //       newImg.style.height = "50px";
+  //       newImg.style.width = "80px";
+  //       logoImages.append(newImg);
+  //     } else if (inputNumber.value[0] === "6") {
+  //       newImg.src = "img/cardLogo/discover.png";
+  //       newImg.style.height = "60px";
+  //       newImg.style.width = "90px";
+  //       logoImages.append(newImg);
+  //       // } else if (inputNumber.value.length === 4) {
+  //       //   console.log("intra");
+  //       //   inputNumber.value[count] = "0";
+  //     }
+  //   } else {
+  //     inputNumber.value = inputNumber.value.slice(0, -1);
+  //   }
+  //   console.log(count);
+  // });
+  // inputNumber.addEventListener("keydown", (event) => {
+  //   if (event.keyCode === 8 && count > 0) {
+  //     count--;
+  //     arrInputNumber[count].classList.toggle("is-changing");
+  //     arrInputNumber[count].textContent = "#";
+  //     console.log(count);
+  //   } else if (event.keyCode === 224 && count > 0) {
+  //     arrInputNumber.forEach((item) => {
+  //       item.textContent = "#";
+  //       item.classList.toggle("is-changing");
+
+  //       console.log("delete all");
+  //     });
+  //     count = 0;
+  //   }
+  //delete imgLogo
   if (event.keyCode === 8 && count === 0) {
     newImg.remove();
   }
