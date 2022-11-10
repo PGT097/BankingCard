@@ -120,7 +120,9 @@ inputNumber.addEventListener("input", () => {
     } else if (count === 14) {
       inputNumber.value = inputNumber.value.slice(0, -1);
     }
-    // arrInputNumber[count].classList.toggle("is-changing");
+    arrInputNumber[count].classList.add("is-changing");
+    arrInputNumber[count].classList.remove("is-changing2");
+
     count++;
     if (inputNumber.value[0] === "4") {
       newImg.src = "img/cardLogo/visa.png";
@@ -148,7 +150,8 @@ inputNumber.addEventListener("input", () => {
 inputNumber.addEventListener("keydown", (event) => {
   if (event.keyCode === 8 && count > 0) {
     count--;
-    arrInputNumber[count].classList.toggle("is-changing");
+    arrInputNumber[count].classList.remove("is-changing");
+    arrInputNumber[count].classList.add("is-changing2");
     arrInputNumber[count].textContent = "#";
     if (count === 14) {
       arrInputNumber[count].textContent = " ";

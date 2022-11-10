@@ -204,3 +204,23 @@ body {
       transform: rotate(360deg);
     }
   }
+  .is-changing2 {
+    /* transform: translate(-2.1rem, -2ex); */
+    animation-name: rotate2;
+    animation-duration: 0.4s;
+  }
+  
+  @keyframes rotate2 {
+    0% {
+      transform: rotate(360deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  .spacer {
+    height: 10vh;
+  }
+  span{
+    display: inline-block
+  }
