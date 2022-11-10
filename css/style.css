@@ -193,17 +193,26 @@ body {
 .is-changing {
     /* transform: translate(-2.1rem, -2ex); */
     animation-name: rotate;
-    animation-duration: 0.7s;
+    animation-duration: 0.5s;
   }
 
   @keyframes rotate {
     0% {
-      transform: rotate(0);
+        transform: translateY(0);
+        opacity:1;
+    }
+    49% {
+        transform: translateY(-20px);
+        opacity:0;
+    }
+    50% {
+        transform: translateY(1px);
     }
     100% {
-      transform: rotate(360deg);
+        transform: translateY(0px);
+        opacity:1;
     }
-  }
+}
   .is-changing2 {
     /* transform: translate(-2.1rem, -2ex); */
     animation-name: rotate2;
@@ -212,12 +221,22 @@ body {
   
   @keyframes rotate2 {
     0% {
-      transform: rotate(360deg);
+        transform: translateY(0px);
+        opacity:1;
+    }
+    49% {
+        transform: translateY(1px);
+        opacity:0;
+    }
+    50% {
+        transform: translateY(-30px);
     }
     100% {
-      transform: rotate(0deg);
+        transform: translateY(0px);
+        opacity:1;
     }
-  }
+}
+
   .spacer {
     height: 10vh;
   }

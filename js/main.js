@@ -65,7 +65,6 @@ console.log(arrInputNumber);
 const optionYear = ["YY", "22", "23", "24", "25", "26", "27", "28", "29", "30"];
 for (let i = 0; i < optionYear.length; i++) {
   const option = document.createElement("option");
-  // option.value = optionYear[i];
   option.text = optionYear[i];
   inputYear.appendChild(option);
 }
@@ -88,140 +87,59 @@ const optionMonth = [
 ];
 for (let i = 0; i < optionMonth.length; i++) {
   const option = document.createElement("option");
-  option.value = optionMonth[i];
   option.text = optionMonth[i];
   inputMonth.appendChild(option);
 }
-//------------------------------------------------------------------------
-const reg = new RegExp("^[0-9]+$");
 
-// let dummyTxt = "1234567890123456";
-// let joy = dummyTxt.match(/.{1,4}/g);
-// console.log(joy);
-// console.log(joy.join(" "));
-
-inputNumber.addEventListener("input", function (e) {
-  e.target.value = e.target.value
+inputNumber.addEventListener("input", (e) => {
+  inputNumber.value = inputNumber.value
     .replace(/[^\dA-Z]/g, "")
     .replace(/(.{4})/g, "$1 ")
     .trim();
-});
-
-inputNumber.addEventListener("input", () => {
+  if (inputNumber.value[count] === "^[A-Z]+$") {
+    inputNumber.value = inputNumber.value.slice(0, -1);
+  }
   if (inputNumber.value[count]) {
-    console.log(123, inputNumber.value.match(reg));
     arrInputNumber[count].textContent = inputNumber.value[count];
     console.log(count);
-
-    if (count === 4) {
-      inputNumber.value = inputNumber.value.slice(0, -1);
-    } else if (count === 9) {
-      inputNumber.value = inputNumber.value.slice(0, -1);
-    } else if (count === 14) {
-      inputNumber.value = inputNumber.value.slice(0, -1);
+    if ([3, 8, 13].includes(count)) {
+      arrInputNumber[count].classList.add("is-changing");
+      arrInputNumber[count].classList.remove("is-changing2");
+      count++;
     }
     arrInputNumber[count].classList.add("is-changing");
     arrInputNumber[count].classList.remove("is-changing2");
-
     count++;
     if (inputNumber.value[0] === "4") {
       newImg.src = "img/cardLogo/visa.png";
       newImg.style.height = "40px";
       newImg.style.width = "80px";
-      logoImages.append(newImg);
     } else if (inputNumber.value[0] === "5") {
       newImg.src = "img/cardLogo/mastercard.png";
       newImg.style.height = "50px";
       newImg.style.width = "80px";
-      logoImages.append(newImg);
     } else if (inputNumber.value[0] === "6") {
       newImg.src = "img/cardLogo/discover.png";
       newImg.style.height = "60px";
       newImg.style.width = "90px";
-      logoImages.append(newImg);
-      // } else if (inputNumber.value.length === 4) {
-      //   console.log("intra");
-      //   inputNumber.value[count] = "0";
     }
-  } else {
-    inputNumber.value = inputNumber.value.slice(0, -1);
+    logoImages.append(newImg);
   }
 });
-inputNumber.addEventListener("keydown", (event) => {
-  if (event.keyCode === 8 && count > 0) {
+inputNumber.addEventListener("keydown", (e) => {
+  if (e.keyCode === 8 && count > 0) {
+    if ([15, 10, 5].includes(count)) {
+      count--;
+    }
     count--;
     arrInputNumber[count].classList.remove("is-changing");
     arrInputNumber[count].classList.add("is-changing2");
     arrInputNumber[count].textContent = "#";
-    if (count === 14) {
-      arrInputNumber[count].textContent = " ";
-    } else if (count === 9) {
-      arrInputNumber[count].textContent = " ";
-    } else if (count === 4) {
-      arrInputNumber[count].textContent = " ";
-    }
-    console.log(count);
   }
-  // else if (event.keyCode === 224 && count > 0) {
-  //   arrInputNumber.forEach((item) => {
-  //     item.textContent = "#";
-  //     item.classList.toggle("is-changing");
-
-  //     console.log("delete all");
-  //   });
-  //   count = 0;
-  // }
-
-  // inputNumber.addEventListener("input", () => {
-  //   if (inputNumber.value[count].match(reg)) {
-  //     arrInputNumber[count].textContent = inputNumber.value[count];
-  //     arrInputNumber[count].classList.toggle("is-changing");
-  //     count++;
-  //     if (inputNumber.value[0] === "4") {
-  //       newImg.src = "img/cardLogo/visa.png";
-  //       newImg.style.height = "40px";
-  //       newImg.style.width = "80px";
-  //       logoImages.append(newImg);
-  //     } else if (inputNumber.value[0] === "5") {
-  //       newImg.src = "img/cardLogo/mastercard.png";
-  //       newImg.style.height = "50px";
-  //       newImg.style.width = "80px";
-  //       logoImages.append(newImg);
-  //     } else if (inputNumber.value[0] === "6") {
-  //       newImg.src = "img/cardLogo/discover.png";
-  //       newImg.style.height = "60px";
-  //       newImg.style.width = "90px";
-  //       logoImages.append(newImg);
-  //       // } else if (inputNumber.value.length === 4) {
-  //       //   console.log("intra");
-  //       //   inputNumber.value[count] = "0";
-  //     }
-  //   } else {
-  //     inputNumber.value = inputNumber.value.slice(0, -1);
-  //   }
-  //   console.log(count);
-  // });
-  // inputNumber.addEventListener("keydown", (event) => {
-  //   if (event.keyCode === 8 && count > 0) {
-  //     count--;
-  //     arrInputNumber[count].classList.toggle("is-changing");
-  //     arrInputNumber[count].textContent = "#";
-  //     console.log(count);
-  //   } else if (event.keyCode === 224 && count > 0) {
-  //     arrInputNumber.forEach((item) => {
-  //       item.textContent = "#";
-  //       item.classList.toggle("is-changing");
-
-  //       console.log("delete all");
-  //     });
-  //     count = 0;
-  //   }
-  //delete imgLogo
-  if (event.keyCode === 8 && count === 0) {
+  if (e.keyCode === 8 && count === 0) {
     newImg.remove();
   }
 });
-
 inputName.addEventListener("input", () => {
   cardName.textContent = inputName.value;
 });
@@ -234,8 +152,10 @@ inputYear.addEventListener("input", () => {
   year = inputYear.value;
   cardDate.textContent = `${month}/${year}`;
 });
+
 const arrCvv = [ccv1, ccv2, ccv3];
 let countCCV = 0;
+const reg = new RegExp("^[0-9]+$");
 inputCvv.addEventListener("input", () => {
   if (inputCvv.value[countCCV].match(reg)) {
     arrCvv[countCCV].textContent = inputCvv.value[countCCV];
@@ -268,13 +188,6 @@ inputNumber.addEventListener("focus", () => {
 inputNumber.addEventListener("focusout", () => {
   cardNumber.style.border = "";
 });
-// inputCvv.addEventListener("focus", () => {
-//   cardCvv.style.border = "1px solid white";
-//   cardCvv.style.borderRadius = "5px";
-// });
-// inputCvv.addEventListener("focusout", () => {
-//   cardCvv.style.border = "";
-// });
 inputMonth.addEventListener("focus", () => {
   cardDate.style.border = "1px solid white";
   cardDate.style.borderRadius = "5px";
